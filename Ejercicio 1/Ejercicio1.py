@@ -46,11 +46,6 @@ class Array(object):
             self.arr[self.item_count] = item
             self.item_count += 1
 
-    def list_array(self):
-        """
-        List elements of the array
-        """
-        return ", ".join(str(x) if x is not None else '_' for x in self.arr)
 
 
 def binary_search(arr, val, start, end):
