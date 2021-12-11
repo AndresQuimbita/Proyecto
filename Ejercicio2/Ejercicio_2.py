@@ -1,27 +1,29 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
 import random
 
 class RandomizedSet:
-
     def __init__(self):
-        self.list = []
+        self.d = {}
 
     def insert(self, val):
-        if self.list:
-            for i in range(len(self.list)):
-                if val in self.list:
+
+        if self.d:
+            for i in range(len(self.d.keys())):
+                if str(val) in self.d.keys():
                     return print(False)
                 else:
-                    self.list.append(val)
+                    self.d[str(val)] = val
                     return print(True)
         else:
-            self.list.append(val)
+            self.d[str(val)] = val
             return print(True)
 
     def remove(self, val):
-        if self.list:
-            for i in range(len(self.list)):
-                if val in self.list:
-                    self.list.remove(val)
+        if self.d:
+            for i in range(len(self.d.keys())):
+                if str(val) in self.d.keys():
+                    del self.d[str(val)]
                     return print(True)
                 else:
                     return print(False)
@@ -29,9 +31,9 @@ class RandomizedSet:
             return print(False)
 
     def getRandom(self):
-        if len(self.list) == 0:
-            return print(False)
-        rndmnum = self.list[random.randint(0,len(self.list))-1]
+        if len(self.d.keys()) == 0:
+            return False
+        rndmnum = random.randint(1,len(self.d.keys()))
         return print(rndmnum)
 
 
