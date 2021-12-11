@@ -9,32 +9,30 @@ class RandomizedSet:
     def insert(self, val):
 
         if self.d:
-            for i in range(len(self.d.keys())):
-                if str(val) in self.d.keys():
-                    return print(False)
-                else:
-                    self.d[str(val)] = val
-                    return print(True)
+            if str(val) in self.d.keys():
+                return False
+            else:
+                self.d[str(val)] = val
+                return True
         else:
             self.d[str(val)] = val
-            return print(True)
+            return True
 
     def remove(self, val):
         if self.d:
-            for i in range(len(self.d.keys())):
-                if str(val) in self.d.keys():
-                    del self.d[str(val)]
-                    return print(True)
-                else:
-                    return print(False)
+            if str(val) in self.d.keys():
+                del self.d[str(val)]
+                return True
+            else:
+                return False
         else:
-            return print(False)
+            return False
 
     def getRandom(self):
         if len(self.d.keys()) == 0:
             return False
-        rndmnum = random.randint(1,len(self.d.keys()))
-        return print(rndmnum)
+        rndmnum= random.choice(list(self.d.keys()))
+        return rndmnum
 
 
 
