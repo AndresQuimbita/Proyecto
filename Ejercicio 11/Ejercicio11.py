@@ -20,26 +20,26 @@ los numeros strombogramaticos de este tamaño son unicamente el 0, el 8 y el 1. 
 """
 
 
-def definirNumero_rotado(valor_ingreso):
+def definirNumero_rotado(valor_ingreso,longitud):
     resultado=[]
     if type(valor_ingreso) is int:
+        if valor_ingreso ==0:
+            return [""]
+        elif valor_ingreso ==1:
+            return ["0","1","8"]
         if valor_ingreso > 1:
-            valores_medios=(definirNumero_rotado(valor_ingreso-2))
+            valores_medios=(definirNumero_rotado(valor_ingreso-2,longitud))
             for i in valores_medios:
-                resultado.append("1" + i + "1")
+                if valor_ingreso != longitud:
+                    resultado.append("0" + i + "0") 
+                resultado.append("1" + i + "1")               
                 resultado.append("6" + i + "9")
                 resultado.append("8" + i + "8")
-                resultado.append("9" + i + "6")  
-        elif valor_ingreso==1:
-            valores_medios=(definirNumero_rotado(valor_ingreso-1))
-            for i in valores_medios:
-                resultado.append("0")
-                resultado.append("8")            
-                resultado.append("1")
-        elif valor_ingreso==0:
-            return [""]
-        else:
-            return [""]
+                resultado.append("9" + i + "6")             
         return resultado
     else: 
         return [""]
+    
+def retornar_resultado(valor_ingreso):
+    resultado=definirNumero_rotado(valor_ingreso,valor_ingreso)
+    return resultado

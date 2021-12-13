@@ -22,27 +22,19 @@ Example 4:
 Input: nums = [1,1,2]
 Output: 1
 
-Explicacion: Para la solucion se utilizaran una lista la cual es ingresada por el usuario y todos los procesos seran realizaran sobre esta lista, 
-de igua manera dos variables iniciados en la posicion inicial del arrelgo, mediante un ciclo while verificamos la existencia del valor estatico contra 
-los valores que se van a recorrer en la variable estatica. Si el valor del puntero estatico  es igual al valor que esta en ese punto del puntero que
-recorre sabemos que dicho valor es el que se repite, por lo que cambiamos a Falso nuestra variable booleana y se retorna el valor donde si se cumplio el 
-valor de if. Mientras que el puntero estatico sea diferente  al puntero que recorre el arreglo va a seguir asignando el siguiente 
-valor del arreglo hasta el final donde retornamos el valor que se repite. 
-
+Explicacion: Para la solucion tomamos los casos bases cuando un arreglo tiene un unico elemento no existira un valor repetido
+y el caso cuando el arreglo esta vacio donde retornamos None, cuando no se cumplen estos dos casos, recorremos mediante un for
+desde 1 hasta el valor de longitud y comparamos mediante un if si la posicion actual de i ya se encuentra en el arreglo, 
+si se cumple este if retornamos este valor en este punto de i. 
 """
 
 def encontrar_duplicados(arreglo):
-    puntero_estatico = arreglo[0]
-    puntero_aRecorrido = arreglo[0]
-    verificar_existencia=True
-    while verificar_existencia:
-        puntero_estatico = arreglo[puntero_estatico]
-        puntero_aRecorrido = arreglo[arreglo[puntero_aRecorrido]]
-        if puntero_estatico == puntero_aRecorrido:
-            verificar_existencia=False
-    puntero_estatico = arreglo[0]
-    while puntero_estatico != puntero_aRecorrido:
-        puntero_estatico = arreglo[puntero_estatico]
-        puntero_aRecorrido = arreglo[puntero_aRecorrido]
-    return puntero_aRecorrido    
-    
+    longitud=len(arreglo)
+    if longitud== 0:
+        return None
+    elif longitud== 1:
+        return None
+    else:
+        for i in range(1,longitud):
+            if arreglo[i] == arreglo[i-1]:
+                return arreglo[i]
