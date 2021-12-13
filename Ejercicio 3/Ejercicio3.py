@@ -38,3 +38,4 @@ def encontrar_duplicados(arreglo):
         for i in range(1,longitud):
             if arreglo[i] == arreglo[i-1]:
                 return arreglo[i]
+    return None
