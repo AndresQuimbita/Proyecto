@@ -1,4 +1,5 @@
-
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
 import random
 
 class RandomizedSet:
@@ -32,6 +33,36 @@ class RandomizedSet:
             return False
         rndmnum= random.choice(list(self.d.keys()))
         return rndmnum
+
+def input(A,B):
+    output = [None for i in range(len(A))]
+    init_set = None
+    for i in range (len(A)):
+        if A[i] == "RandomizedSet":
+            init_set = RandomizedSet(B[i])
+            output[i] = None
+        if A[i] == "insert":
+            if not init_set:
+                output[i] = False
+            else:
+                output[i] = init_set.insert(B[i][0])
+
+        if A[i] == "remove":
+            if not init_set:
+                output[i]=False
+            else:
+                output[i] = init_set.remove(B[i][0])
+        if A[i] == "getRandom":
+            if not init_set:
+                output[i] = False
+            else:
+                output[i] = init_set.getRandom()
+    return  output
+
+
+
+
+
 
 
 
