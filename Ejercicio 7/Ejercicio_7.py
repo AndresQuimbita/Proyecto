@@ -25,5 +25,4 @@ def count_paths(A):
                 dic[cur] += dic_prev[prev]
     return sum(dic.values())
 
-if __name__ == '__main__':
-    print(count_paths([2,7,9,4,5,6]))
+
