@@ -36,4 +36,4 @@ def impar_odd_sum(array):
         if (odd % 2) != 0:
             result.append(i)
     ans = len(result)
-    return ans
+    return ans % (10**9 + 7)
