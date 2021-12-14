@@ -1,3 +1,11 @@
+"""
+para este ejercicio se considero el uso de diccionarios para asi lograr el tiempo de complejidad, se usaron 4 funciones, 
+la de insert,remove, get random y la de input para lograr el input con arreglos
+
+
+"""
+
+
 import random
 
 
