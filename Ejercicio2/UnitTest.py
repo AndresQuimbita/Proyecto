@@ -1,4 +1,4 @@
-import Ejercicio_2
+from Ejercicio_2 import input
 import unittest
 
 
