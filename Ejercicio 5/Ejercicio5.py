@@ -23,7 +23,7 @@ Return true because Alice wins.
 
 Explicion: Utilizando el Principio de Colon el cual establece que para ramas que se unen en un vertice
 se puede reemplazar dichas ramas por un tallo no ramificado de su misma longitud. Por lo que determinamos
-que para la solucion determinamos las soluciones en el principio de Colon es decir, cero y uno. Mediante un
+que para la solucion determinamos las soluciones en el principio de Colon es decir, una lista compuesto de cero y uno. Mediante un
 for recorremos los posibles resultados para valores ingresados de tal manera que cumpla la condicion de:
 SG(N)=(SG(N-1)+1) (SG(N-2)+1). Y para resultados en el que SG=0 debemos retornar False y para SG=1 debemos 
 retornar True
