@@ -1,43 +1,39 @@
 import random
 
+
 class RandomizedSet:
-    def __init__(self):
+    def __init__(self, list):
         self.d = {}
+        self.list = list
 
     def insert(self, val):
-
-        if self.d:
-            if str(val) in self.d.keys():
-                return False
-            else:
-                self.d[str(val)] = val
-                return True
+        if str(val) in self.d.keys():
+            return False
         else:
             self.d[str(val)] = val
+            self.list.append(val)
             return True
 
     def remove(self, val):
-        if self.d:
-            if str(val) in self.d.keys():
-                del self.d[str(val)]
-                return True
-            else:
-                return False
+        if str(val) in self.d.keys():
+            del self.d[str(val)]
+            self.list.remove(val)
+            return True
         else:
             return False
 
     def getRandom(self):
         if len(self.d.keys()) == 0:
-            return False
+            return None
         random.seed(2)
-        rndmnum= random.choice(list(self.d.keys()))
-
+        rndmnum = random.choice(self.list)
         return rndmnum
 
-def input(A,B):
+
+def input(A, B):
     output = [None for i in range(len(A))]
     init_set = None
-    for i in range (len(A)):
+    for i in range(len(A)):
         if A[i] == "RandomizedSet":
             init_set = RandomizedSet(B[i])
             output[i] = None
@@ -49,7 +45,7 @@ def input(A,B):
 
         if A[i] == "remove":
             if not init_set:
-                output[i]=False
+                output[i] = False
             else:
                 output[i] = init_set.remove(B[i][0])
         if A[i] == "getRandom":
@@ -57,5 +53,4 @@ def input(A,B):
                 output[i] = False
             else:
                 output[i] = init_set.getRandom()
-    return  output
-
+    return output
